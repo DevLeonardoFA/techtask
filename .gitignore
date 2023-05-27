@@ -1,0 +1,8 @@
+# Ignorar todos os arquivos do WordPress
+*
+
+# Exceto o diretório wp-content
+!wp-content/
+
+# Exceto o arquivo config.php
+!wp-config.php
