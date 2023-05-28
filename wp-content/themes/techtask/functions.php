@@ -5,7 +5,7 @@
  */
 function wpdocs_theme_name_scripts() {
 	wp_enqueue_style( 'themestyle', get_stylesheet_uri());
-	wp_enqueue_style( 'main', get_stylesheet_uri() . '/assets/css/main.css');
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/assets/css/main.css');
 	wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com');
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );

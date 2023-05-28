@@ -12,7 +12,7 @@
 </head>
 <body <?= body_class(); ?> >
 
-<div class="sticky top-0 left-0 w-full flex justify-center" id="header">
+<div class="sticky top-0 left-0 w-full flex justify-center z-10 bg-white" id="header">
     <div class="w-4/5 h-20 flex justify-between">
 
         <div class="header__logo">
@@ -21,16 +21,17 @@
             </a>
         </div>
 
-        <div class="header__menu_and_buttons">
-            <div class="menu items-center bg-white">
-                <?php wp_nav_menu('header-menu'); ?>
+        <div class="header__menu_and_buttons flex items-center justify-center">
+            <div class="menu items-center bg-white flex flex-auto">
+                <?php wp_nav_menu( array('theme_location' => 'header-menu', 'menu_class' => 'flex justify-between', 'container_class' => 'w-full')); ?>
             </div>
 
             <div class="buttons_box">
-                <a href="http://">Login</a>
-                <a href="http://">Register</a>
+                <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Log In</a>
+                <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Sing Up</a>
             </div>
         </div>
 
     </div>
 </div>
+

@@ -1,9 +1,214 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 
+$byzantinenightBlue: #6371F4;
+$midnightBlue: #251F6E;
+$gray: #848484;
+
+
 *{
     font-family: 'Dongle';
 }
 
 html, body{
     margin: 0 !important;
+}
+
+div#header{
+    ul#menu-header{
+
+        li{
+            margin: 0 0.5rem;
+        }
+
+        li > a {
+            font-size: 2rem;
+            color: $midnightBlue;
+            text-decoration: none;
+            padding-right: 25px;
+        }
+
+        li.menu-item-has-children {
+            position: relative;
+
+            ul.sub-menu {
+                display: none;
+                left: -1px;
+                position: absolute;
+                bottom: 4px;
+                transform: translateY(100%);
+                width: max-content;
+                box-shadow: 0px 0px 10px 0px #251f6e69;
+                padding: 5px 10px;
+                border-radius: 5px;
+                background: #fff;
+
+                a{
+                    transition: 400ms;
+                    display: block;
+
+                    &:hover{
+                        transform: translateX(4px);
+                        text-decoration: underline;
+                        text-underline-position: below;
+                    }
+                }
+            }
+
+            &:hover ul.sub-menu{
+                display: block;
+            }
+
+            &::after {
+                content: url('../images/Vector.svg');
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                top: 50%;
+                right: 0;
+                transform: translateY(-65%) rotate(180deg);
+                transition: 400ms;
+            }
+
+            &:hover::after{
+                transform: translateY(-65%) rotate(0deg);
+            }
+
+            &:hover::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background: $midnightBlue;
+            }
+
+        }
+
+    }
+}
+
+main{
+    padding-top: 5rem;
+    .banner{
+
+        :is(h1, h2, h3, h3, h4, h5){
+            font-family: 'Dongle';
+            font-style: normal;
+            font-weight: 700;
+            line-height: 80%;
+            margin-bottom: 2rem;
+            color: $midnightBlue;
+        }
+
+        @for $i from 0 through 5 {
+            h#{$i}{
+                font-size: calc(3rem + (1rem / #{$i}));
+            }
+        }
+
+        p{
+            font-family: 'Dongle';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 1;
+            color: #848484;
+            margin-bottom: 1.25rem;
+        }
+        
+        ul li{
+            position: relative;
+            padding-left: 2.5rem;
+            font-family: 'Dongle';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2rem;
+            color: $gray;
+
+            a{
+                color: $gray;
+            }
+
+            &:after{
+                content: '';
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                background-color: $byzantinenightBlue;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                border-radius: 50px;
+            }
+        }
+
+    }
+}
+
+div#footer{
+
+    ul#menu-footer-menu{
+        
+        & > li > a {
+            color: #8A94F7;
+            font-size: 3rem;
+            margin-bottom: 2rem !important;
+            display: block;
+            transition: 400ms;
+
+            &:hover{
+                text-decoration: underline;
+                text-underline-position: below;
+                text-decoration-color: #8A94F7;
+                transform: scale(1.05);
+            } 
+        }
+
+        & > li > ul a{
+            display: block;
+            transition: 400ms;
+
+            &:hover{
+                text-decoration: underline;
+                text-underline-position: below;
+                text-decoration-color: #8A94F7;
+                transform: translateX(5px);
+            } 
+        }
+
+    }
+
+    div#social-m a{
+        display: block;
+        
+        svg{
+            transition: 400ms;
+
+            &:hover{
+                transform: scale(1.05);
+
+                path{fill: #fff;}
+            }
+        }
+
+    }
+
+    .Grow_n_changeColor a{
+        display: block;
+        transition: 400ms;
+        &:hover{
+            transform: scale(1.05);
+            color: #ffffff;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1480px){
+
+    :root{
+        font-size: 85%;
+    }
+    
 }
