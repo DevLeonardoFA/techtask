@@ -6,6 +6,16 @@ html, body {
   margin: 0 !important;
 }
 
+body.scrolled #header {
+  box-shadow: 0 0 10px 1px #79797970;
+}
+
+div#header .header__logo img {
+  height: 100%;
+}
+div#header ul#menu-header {
+  order: 1;
+}
 div#header ul#menu-header li {
   margin: 0 0.5rem;
   position: relative;
@@ -30,18 +40,7 @@ div#header ul#menu-header li.menu-item-has-children {
 }
 div#header ul#menu-header li.menu-item-has-children > a {
   padding-right: 0.625rem;
-}
-div#header ul#menu-header li.menu-item-has-children ul.sub-menu {
-  display: none;
-  left: -1px;
-  position: absolute;
-  bottom: 4px;
-  transform: translateY(100%);
-  width: max-content;
-  box-shadow: 0px 0px 10px 0px #251f6e69;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background: #fff;
+  position: relative;
 }
 div#header ul#menu-header li.menu-item-has-children ul.sub-menu a {
   transition: 400ms;
@@ -51,22 +50,31 @@ div#header ul#menu-header li.menu-item-has-children ul.sub-menu a:hover {
   transform: translateX(4px);
   text-decoration: underline;
   text-underline-position: below;
+  color: #6371F4;
 }
 div#header ul#menu-header li.menu-item-has-children:hover ul.sub-menu {
   display: block;
 }
-div#header ul#menu-header li.menu-item-has-children::after {
+div#header ul#menu-header li.menu-item-has-children > a::after {
   content: url("../images/Vector.svg");
   position: absolute;
   align-items: center;
   justify-content: center;
   top: 50%;
-  right: 0;
-  transform: translateY(-65%) rotate(180deg);
+  height: 13px;
+  right: -8px;
+  transform: translateY(-50%) rotate(180deg);
   transition: 400ms;
+  display: flex;
 }
-div#header ul#menu-header li.menu-item-has-children:hover::after {
+div#header ul#menu-header li.menu-item-has-children:hover > a::after {
   transform: translateY(-65%) rotate(0deg);
+}
+div#header ul#menu-header li.menu-item-has-children:hover, div#header ul#menu-header li.menu-item-has-children:active {
+  color: #6371F4;
+}
+div#header .buttons_box {
+  order: 2;
 }
 div#header .buttons_box > a {
   transition: 400ms;
@@ -161,7 +169,6 @@ main .cards .card {
 }
 main .cards .card:hover {
   border-color: #6371F4;
-  transform: scale(1.05);
 }
 main .cards .card .content p {
   font-family: "Inter", sans-serif;
@@ -218,6 +225,151 @@ div#footer .Grow_n_changeColor a:hover {
 @media screen and (max-width: 1480px) {
   :root {
     font-size: 85%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  div#header ul#menu-header li.menu-item-has-children ul.sub-menu {
+    display: none;
+    left: -1px;
+    position: absolute;
+    bottom: 4px;
+    transform: translateY(100%);
+    width: max-content;
+    box-shadow: 0px 0px 10px 0px #251f6e69;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #fff;
+  }
+}
+@media screen and (max-width: 1024px) {
+  div#header {
+    box-shadow: 0 0 10px 1px #79797970;
+  }
+  div#header img.scale {
+    transition: 400ms;
+    height: 90px;
+  }
+  div#header .buttons_box {
+    order: 1;
+  }
+  div#header .menu {
+    order: 2;
+  }
+  div#header .menu ul#menu-header {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    transform: translateY(100%);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    padding: 10px 0px;
+    box-shadow: 0 0 10px 1px #79797970;
+    opacity: 0;
+    visibility: hidden;
+  }
+  div#header .menu ul#menu-header ul.sub-menu {
+    height: 0;
+    opacity: 0;
+    z-index: -1;
+  }
+  div#header .menu.menu__on ul#menu-header {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  div#header .burger label {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    cursor: pointer;
+  }
+  div#header .burger label span {
+    background: #000;
+    border-radius: 10px;
+    height: 5px;
+    margin: 3px 0;
+    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  div#header .burger label span:nth-of-type(1) {
+    width: 50%;
+  }
+  div#header .burger label span:nth-of-type(2) {
+    width: 100%;
+  }
+  div#header .burger label span:nth-of-type(3) {
+    width: 75%;
+  }
+  div#header .burger label input[type=checkbox] {
+    display: none;
+  }
+  div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(3px, 0px);
+  }
+  div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(2) {
+    transform-origin: top;
+    transform: rotatez(-45deg);
+  }
+  div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(3) {
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(18px, -5px) rotatez(45deg);
+  }
+
+  body.scrolled div#header img.scale {
+    height: 65px;
+  }
+
+  div#header ul#menu-header li > a:hover {
+    color: #6371F4;
+  }
+
+  div#header ul#menu-header li:hover::before {
+    display: none;
+  }
+  div#header ul#menu-header li.menu-item-has-children.active ul.sub-menu {
+    height: unset;
+    opacity: 1;
+  }
+  div#header ul#menu-header li.menu-item-has-children.active > a::after {
+    top: 43%;
+  }
+
+  main .cards .card {
+    padding: 2rem;
+  }
+  main .cards .card img {
+    max-width: 13rem;
+    margin: 0 auto;
+    aspect-ratio: 1/1;
+  }
+  main .cards .card h3 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  main .cards .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .wid_mob {
+    width: 100% !important;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  div#header .menu.menu__on ul#menu-header {
+    left: 0;
+    bottom: 0px;
+    background: #ffffff78;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px 25px #ffffff inset;
+    height: 100vh;
+    justify-content: flex-start;
   }
 }
 

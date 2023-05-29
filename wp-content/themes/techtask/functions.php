@@ -6,7 +6,12 @@
 function wpdocs_theme_name_scripts() {
 	wp_enqueue_style( 'themestyle', get_stylesheet_uri());
 	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/assets/css/main.css');
+	wp_enqueue_style( 'slick_style', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
 	wp_enqueue_script( 'tailwind', 'https://cdn.tailwindcss.com');
+	wp_enqueue_script( 'Jquery', 'https://code.jquery.com/jquery-3.7.0.min.js');
+	wp_enqueue_script( 'slick_js', 'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js');
+	wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/scripts/main.js');
+    
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
 

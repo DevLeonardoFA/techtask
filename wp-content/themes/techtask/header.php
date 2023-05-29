@@ -15,7 +15,7 @@
 <h1 class="hidden"><?= get_the_title(); ?></h1>
 
 <div class="sticky top-0 left-0 w-full flex justify-center z-10 bg-white" id="header">
-    <div class="w-4/5 h-20 flex justify-between">
+    <div class="wid_mob w-4/5 h-20 flex justify-between max-[1025px]:items-center max-[1025px]:h-auto max-[1025px]:relative">
 
         <div class="header__logo">
             <a href="<?php echo get_home_url(); ?>">
@@ -32,6 +32,15 @@
                 <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Log In</a>
                 <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Sing Up</a>
             </div>
+        </div>
+
+        <div class="burger min-[1025px]:hidden">
+            <label for="check">
+                <input type="checkbox" id="check"/> 
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
         </div>
 
     </div>

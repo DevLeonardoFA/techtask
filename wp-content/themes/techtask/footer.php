@@ -2,7 +2,7 @@
 
 
 <div class="block w-full flex justify-center bg-black py-14" id="footer">
-    <div class="w-4/5">
+    <div class="wid_mob w-4/5">
 
         <div class="menu flex justify-between">
             <?php wp_nav_menu( array('theme_location' => 'footer-menu', 'container_class' => 'w-full', 'menu_class' => 'flex justify-between text-2xl text-white')); ?>
