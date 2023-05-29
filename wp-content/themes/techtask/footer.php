@@ -1,7 +1,7 @@
 <?php include('svg.php'); ?>
 
 
-<div class="block w-full flex justify-center bg-black py-10" id="footer">
+<div class="block w-full flex justify-center bg-black py-14" id="footer">
     <div class="w-4/5">
 
         <div class="menu flex justify-between">

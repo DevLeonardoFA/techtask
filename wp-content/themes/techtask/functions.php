@@ -14,6 +14,11 @@ add_theme_support( 'custom-logo' );
 
 add_filter('show_admin_bar', '__return_false');
 
+function remove_editor() {
+    remove_post_type_support('page', 'editor');
+}
+add_action('admin_init', 'remove_editor');
+
 function register_my_menus() {
     register_nav_menus(
         array(

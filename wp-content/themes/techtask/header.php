@@ -12,6 +12,8 @@
 </head>
 <body <?= body_class(); ?> >
 
+<h1 class="hidden"><?= get_the_title(); ?></h1>
+
 <div class="sticky top-0 left-0 w-full flex justify-center z-10 bg-white" id="header">
     <div class="w-4/5 h-20 flex justify-between">
 
