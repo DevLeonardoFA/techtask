@@ -18,18 +18,7 @@
 
         <?php $content_group = get_field('content'); ?>
 
-        <div class="
-        content 
-        block
-        w-full
-        min-[769px]:max-w-[30rem]
-        min-[1024px]:w-1/2
-        min-[1240px]:w-4/12
-        min-[1240px]:absolute
-        min-[1240px]:left-0
-        min-[1240px]:top-1/2
-        min-[1240px]:translate-y-[-75%]
-        ">
+        <div class=" content block w-full min-[769px]:max-w-[30rem] min-[1024px]:w-1/2 min-[1240px]:w-4/12 min-[1240px]:absolute min-[1240px]:left-0 min-[1240px]:top-1/2 min-[1240px]:translate-y-[-75%]" id="float_content">
             <?= $content_group['text_content']; ?>
         </div>
 

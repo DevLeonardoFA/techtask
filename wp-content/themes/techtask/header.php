@@ -18,19 +18,39 @@
     <div class="wid_mob w-4/5 h-20 flex justify-between max-[1025px]:items-center max-[1025px]:h-auto max-[1025px]:relative">
 
         <div class="header__logo">
+            <?php $logos = get_field('logos'); ?>
             <a href="<?php echo get_home_url(); ?>">
-                <img src="<?= esc_url( wp_get_attachment_url( get_theme_mod( 'custom_logo' ) ) ); ?>" alt="logo" class="scale">
+                <img src="<?= $logos['logo_desktop'] ?>" alt="logo" class="scale logo_desk">
+                <img src="<?= $logos['logo_mobile'] ?>" alt="logo" class="scale md:hidden">
             </a>
         </div>
 
         <div class="header__menu_and_buttons flex items-center justify-center">
             <div class="menu items-center bg-white flex flex-auto">
-                <?php wp_nav_menu( array('theme_location' => 'header-menu', 'menu_class' => 'flex justify-between', 'container_class' => 'w-full')); ?>
+                <?php wp_nav_menu( array('link_after' => '<span>></span>','theme_location' => 'header-menu', 'menu_class' => 'flex justify-between', 'container_class' => 'w-full')); ?>
             </div>
 
             <div class="buttons_box">
-                <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Log In</a>
-                <a href="http://" class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1">Sing Up</a>
+            <?php 
+                $buttons = get_field('loginregister_buttons');
+
+                $link = $buttons['login_button'];
+                if( $link ): 
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    echo '<a class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1"" href="'.esc_url( $link_url ).'" target="'.esc_attr( $link_target ).'">'.esc_html( $link_title ).'</a>';
+                endif;
+
+                $link = $buttons['register_button'];
+                if( $link ): 
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    echo '<a class="bg-[#6371F4] text-white text-2xl py-2 px-6 rounded-lg mx-1"" href="'.esc_url( $link_url ).'" target="'.esc_attr( $link_target ).'">'.esc_html( $link_title ).'</a>';
+                endif;
+
+            ?>
             </div>
         </div>
 

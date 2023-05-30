@@ -21,21 +21,28 @@ jQuery(function($) {
     });
 
     // sub menu
-    $('.menu-item-has-children').click(function() {
-        var menuItem = $(this);
+    $('.menu-item-has-children > a > span').click(function(e) {
+        e.preventDefault();
+        var menuItem = $(this).parents('li');
     
         if (menuItem.hasClass('active')) {
             // Reset all other menu items
-            $('.menu-item-has-children').not(menuItem).removeClass('active');
+            $('.menu-item-has-children').removeClass('active');
         } else {
             // If the menu item is not active (first click), add the "active" class
             menuItem.addClass('active');
+            $('.menu-item-has-children').not(menuItem).removeClass('active');
         }
     });
 
+    // Function to verify qtn and resolution
+    var itemCount = $('.cards_loop .slick-slide').length;
+    var screenWidth = $(window).width();
+
+
     function SlickInit(slides){
         $('.cards_loop').slick({
-            dots: false,
+            dots: true,
             infinite: true,
             speed: 300,
             slidesToShow: slides,
@@ -44,7 +51,7 @@ jQuery(function($) {
             autoplaySpeed: 5000,
             arrows: false,
             responsive: [{
-                breakpoint: 425,
+                breakpoint: 426,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -55,18 +62,34 @@ jQuery(function($) {
     }
 
 
-    // Function to verify qtn and resolution
-    var itemCount = $('.cards_loop .slick-slide').length;
-    var screenWidth = $(window).width();
-
     // verify if slick shoud be start on Desktop
     if (itemCount > 3) {
         SlickInit(3);
     }
-    if(screenWidth <= 1028){
+    if(screenWidth <= 1026){
         SlickInit(2)
     }
 
+    if(screenWidth <= 426){
+
+        // close all
+        $('#footer ul.sub-menu').slideUp();
+
+        $('#footer ul#menu-footer-menu > li > a > span').click(function(event) {
+            event.preventDefault();
+
+            var submenu = $(this).parent().siblings('.sub-menu');
+            var isOpen = submenu.is(':visible');
+
+            if (!isOpen) {
+                $('#footer ul.sub-menu').slideUp();
+                submenu.slideDown();
+            }else{
+                submenu.slideUp();
+            }
+
+        });
+    }
 
 
 

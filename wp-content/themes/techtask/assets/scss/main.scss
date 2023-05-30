@@ -5,6 +5,20 @@ $gray: #848484;
 
 *{
     font-family: 'Dongle', sans-serif;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent; 
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $midnightBlue; 
+        border-radius:10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: $byzantinenightBlue; 
+    } 
 }
 
 html, body{
@@ -14,6 +28,9 @@ html, body{
 body.scrolled #header{
     box-shadow: 0 0 10px 1px #79797970;
 }
+
+
+
 
 div#header{
     
@@ -47,6 +64,10 @@ div#header{
             background: $midnightBlue;
         }
 
+        li > a > span{
+            display: none;
+        }
+
         li.menu-item-has-children {
             position: relative;
 
@@ -71,20 +92,21 @@ div#header{
                 display: block;
             }
 
-            & > a::after {
+            & > a span {
                 content: url('../images/Vector.svg');
                 position: absolute;
                 align-items: center;
                 justify-content: center;
                 top: 50%;
-                height: 13px;
+                height: 12px;
+                width: 12px;
                 right: -8px;
                 transform: translateY(-50%) rotate(180deg);
                 transition: 400ms;
                 display: flex;
             }
 
-            &:hover > a::after{
+            &:hover > a span{
                 transform: translateY(-65%) rotate(0deg);
             }
 
@@ -214,11 +236,35 @@ main{
     }
 }
 
-div#footer{
+.cards_loop.slick-slider{
+    flex-wrap: wrap;
+}
 
-    ul#menu-footer-menu{
-        
-        & > li > a {
+ul.slick-dots {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.slick-dots button {
+    color: transparent;
+    width: 9px;
+    height: 9px;
+    background: #6371f4;
+    border-radius: 50px;
+    margin: 9px 3px 0;
+}
+
+div#footer ul#menu-footer-menu{
+
+    & > li{
+
+        span{
+            display: none;
+        }
+
+        & > a {
             color: #8A94F7;
             font-size: 3rem;
             margin-bottom: 2rem !important;
@@ -233,7 +279,7 @@ div#footer{
             } 
         }
 
-        & > li > ul a{
+        & > ul a{
             display: block;
             transition: 400ms;
 
@@ -247,31 +293,33 @@ div#footer{
 
     }
 
-    div#social-m a{
-        display: block;
-        
-        svg{
-            transition: 400ms;
+}
 
-            &:hover{
-                transform: scale(1.05);
-
-                path{fill: #fff;}
-            }
-        }
-
-    }
-
-    .Grow_n_changeColor a{
-        display: block;
+div#social-m a{
+    display: block;
+    
+    svg{
         transition: 400ms;
+
         &:hover{
             transform: scale(1.05);
-            color: #ffffff;
+
+            path{fill: #fff;}
         }
     }
 
 }
+
+.Grow_n_changeColor a{
+    display: block;
+    transition: 400ms;
+    &:hover{
+        transform: scale(1.05);
+        color: #ffffff;
+    }
+}
+
+
 
 @media screen and (max-width: 1480px){
 
@@ -350,6 +398,7 @@ div#footer{
                 flex-direction: column;
                 width: 40px;
                 cursor: pointer;
+                align-items: flex-end;
 
                 span{
                     background: #000;
@@ -377,18 +426,18 @@ div#footer{
 
                 input[type="checkbox"]:checked ~ span:nth-of-type(1){
                     transform-origin: bottom;
-                    transform: rotatez(45deg) translate(3px,0px)
+                    transform: rotatez(226deg) translate(10px, -8px);
                 }
 
                 input[type="checkbox"]:checked ~ span:nth-of-type(2){
                     transform-origin: top;
-                    transform: rotatez(-45deg)
+                    transform: rotatez(135deg) translate(0px, -5px);
                 }
         
                 input[type="checkbox"]:checked ~ span:nth-of-type(3){
                     transform-origin: bottom;
                     width: 50%;
-                    transform: translate(18px, -5px) rotatez(45deg);
+                    transform: translate(1px, -10px) rotatez(225deg);
                 }
 
             }
@@ -459,10 +508,123 @@ div#footer{
     div#header .menu.menu__on ul#menu-header {
         left: 0;
         bottom: 0px;
-        background: #ffffff78;
+        background: #ffffff94;
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 0 40px 25px #ffffff inset;
         height: 100vh;
         justify-content: flex-start;
+    }
+
+    #footer{
+
+        ul#menu-footer-menu{
+            flex-wrap: wrap;
+        
+            & > li {
+                width: 33.33%;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+        }
+
+    }
+}
+
+@media screen and (max-width: 425px){
+    
+    div#header{
+
+        .buttons_box > a {
+            font-size: 1.4rem;
+            padding: 0 1rem;
+        }
+        
+        img.scale {
+            height: 65px;
+        }
+        
+        .logo_desk{
+            display: none;
+        }
+    }
+    
+    main#main {
+        overflow: hidden;
+
+        .wid_mob.banner img {
+            width: 150%;
+            max-width: unset;
+            transform: translateX(-50%);
+            margin-left: 50%;
+        }
+
+        .cards .card.slick-current {
+            border-color: #6371F4;
+        }
+    }
+
+    #footer{
+        
+        div#social-m a{
+            margin: 0 0.8rem;
+        }
+        
+        ul#menu-footer-menu > li {
+            width: 100%;
+            margin-bottom: 2rem;
+            text-align: left;
+
+            &.menu-item-has-children > a span{
+                display: block;
+                content: url('../images/Vector.svg');
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                top: 50%;
+                height: 2rem;
+                width: 2rem;
+                right: -8px;
+                transform: translateY(-50%) rotate(180deg);
+                transition: 400ms;
+                display: flex;
+                padding: 5px;
+            }
+
+            & > a{
+                position: relative;
+            }
+            
+            & > ul a {
+                font-size: 2.5rem;
+                line-height: 1;
+            }
+
+            a:hover {
+                transform: none !important;
+            }
+        }
+
+    }
+
+    .Grow_n_changeColor{
+        flex-direction: column;
+    }
+
+    .change_order_for_mobile{
+        display: flex;
+        flex-direction: column-reverse;
+
+        div#social-m{
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+@media (max-width: 320px){
+    :root {
+        font-size: 60% !important;
     }
 }

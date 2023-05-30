@@ -1,6 +1,19 @@
 * {
   font-family: "Dongle", sans-serif;
 }
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #251F6E;
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #6371F4;
+}
 
 html, body {
   margin: 0 !important;
@@ -35,6 +48,9 @@ div#header ul#menu-header > li:hover::before {
   width: 100%;
   background: #251F6E;
 }
+div#header ul#menu-header li > a > span {
+  display: none;
+}
 div#header ul#menu-header li.menu-item-has-children {
   position: relative;
 }
@@ -55,19 +71,20 @@ div#header ul#menu-header li.menu-item-has-children ul.sub-menu a:hover {
 div#header ul#menu-header li.menu-item-has-children:hover ul.sub-menu {
   display: block;
 }
-div#header ul#menu-header li.menu-item-has-children > a::after {
+div#header ul#menu-header li.menu-item-has-children > a span {
   content: url("../images/Vector.svg");
   position: absolute;
   align-items: center;
   justify-content: center;
   top: 50%;
-  height: 13px;
+  height: 12px;
+  width: 12px;
   right: -8px;
   transform: translateY(-50%) rotate(180deg);
   transition: 400ms;
   display: flex;
 }
-div#header ul#menu-header li.menu-item-has-children:hover > a::after {
+div#header ul#menu-header li.menu-item-has-children:hover > a span {
   transform: translateY(-65%) rotate(0deg);
 }
 div#header ul#menu-header li.menu-item-has-children:hover, div#header ul#menu-header li.menu-item-has-children:active {
@@ -178,6 +195,29 @@ main .cards .card .content p {
   text-align: center;
 }
 
+.cards_loop.slick-slider {
+  flex-wrap: wrap;
+}
+
+ul.slick-dots {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.slick-dots button {
+  color: transparent;
+  width: 9px;
+  height: 9px;
+  background: #6371f4;
+  border-radius: 50px;
+  margin: 9px 3px 0;
+}
+
+div#footer ul#menu-footer-menu > li span {
+  display: none;
+}
 div#footer ul#menu-footer-menu > li > a {
   color: #8A94F7;
   font-size: 3rem;
@@ -201,23 +241,25 @@ div#footer ul#menu-footer-menu > li > ul a:hover {
   text-decoration-color: #8A94F7;
   transform: translateX(5px);
 }
-div#footer div#social-m a {
+
+div#social-m a {
   display: block;
 }
-div#footer div#social-m a svg {
+div#social-m a svg {
   transition: 400ms;
 }
-div#footer div#social-m a svg:hover {
+div#social-m a svg:hover {
   transform: scale(1.05);
 }
-div#footer div#social-m a svg:hover path {
+div#social-m a svg:hover path {
   fill: #fff;
 }
-div#footer .Grow_n_changeColor a {
+
+.Grow_n_changeColor a {
   display: block;
   transition: 400ms;
 }
-div#footer .Grow_n_changeColor a:hover {
+.Grow_n_changeColor a:hover {
   transform: scale(1.05);
   color: #ffffff;
 }
@@ -283,6 +325,7 @@ div#footer .Grow_n_changeColor a:hover {
     flex-direction: column;
     width: 40px;
     cursor: pointer;
+    align-items: flex-end;
   }
   div#header .burger label span {
     background: #000;
@@ -305,16 +348,16 @@ div#footer .Grow_n_changeColor a:hover {
   }
   div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(1) {
     transform-origin: bottom;
-    transform: rotatez(45deg) translate(3px, 0px);
+    transform: rotatez(226deg) translate(10px, -8px);
   }
   div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(2) {
     transform-origin: top;
-    transform: rotatez(-45deg);
+    transform: rotatez(135deg) translate(0px, -5px);
   }
   div#header .burger label input[type=checkbox]:checked ~ span:nth-of-type(3) {
     transform-origin: bottom;
     width: 50%;
-    transform: translate(18px, -5px) rotatez(45deg);
+    transform: translate(1px, -10px) rotatez(225deg);
   }
 
   body.scrolled div#header img.scale {
@@ -365,11 +408,97 @@ div#footer .Grow_n_changeColor a:hover {
   div#header .menu.menu__on ul#menu-header {
     left: 0;
     bottom: 0px;
-    background: #ffffff78;
+    background: #ffffff94;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 0 40px 25px #ffffff inset;
     height: 100vh;
     justify-content: flex-start;
+  }
+
+  #footer ul#menu-footer-menu {
+    flex-wrap: wrap;
+  }
+  #footer ul#menu-footer-menu > li {
+    width: 33.33%;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  div#header .buttons_box > a {
+    font-size: 1.4rem;
+    padding: 0 1rem;
+  }
+  div#header img.scale {
+    height: 65px;
+  }
+  div#header .logo_desk {
+    display: none;
+  }
+
+  main#main {
+    overflow: hidden;
+  }
+  main#main .wid_mob.banner img {
+    width: 150%;
+    max-width: unset;
+    transform: translateX(-50%);
+    margin-left: 50%;
+  }
+  main#main .cards .card.slick-current {
+    border-color: #6371F4;
+  }
+
+  #footer div#social-m a {
+    margin: 0 0.8rem;
+  }
+  #footer ul#menu-footer-menu > li {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  #footer ul#menu-footer-menu > li.menu-item-has-children > a span {
+    display: block;
+    content: url("../images/Vector.svg");
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    height: 2rem;
+    width: 2rem;
+    right: -8px;
+    transform: translateY(-50%) rotate(180deg);
+    transition: 400ms;
+    display: flex;
+    padding: 5px;
+  }
+  #footer ul#menu-footer-menu > li > a {
+    position: relative;
+  }
+  #footer ul#menu-footer-menu > li > ul a {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  #footer ul#menu-footer-menu > li a:hover {
+    transform: none !important;
+  }
+
+  .Grow_n_changeColor {
+    flex-direction: column;
+  }
+
+  .change_order_for_mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .change_order_for_mobile div#social-m {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 320px) {
+  :root {
+    font-size: 60% !important;
   }
 }
 
