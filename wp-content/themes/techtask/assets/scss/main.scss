@@ -319,6 +319,19 @@ div#social-m a{
     }
 }
 
+div#float_content {
+    opacity: 0;
+    animation: visible 2s 0.6s cubic-bezier(0.24, -0.13, 0.73, 1.25) forwards;
+}
+div#img_banner{
+    opacity: 0;
+    animation: visible 2s 1s cubic-bezier(0.24, -0.13, 0.73, 1.25) forwards;
+}
+
+@keyframes visible{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 
 
 @media screen and (max-width: 1480px){
@@ -444,6 +457,27 @@ div#social-m a{
             
         }
 
+        ul#menu-header li {
+            border-bottom: 1px solid $byzantinenightBlue;
+
+            &.menu-item-has-children.active ul.sub-menu > li {
+                border: none;
+            }
+
+            &.menu-item-has-children > a {
+                width: calc(100% - 0.9375rem);
+                position: relative;
+                display: block;
+                padding: 0;
+    
+                span {
+                    right: 0;
+                }
+                        
+            }
+        }
+
+
     }
 
     body.scrolled div#header img.scale {
@@ -505,15 +539,22 @@ div#social-m a{
         padding-right: 5%;
     }
 
-    div#header .menu.menu__on ul#menu-header {
+    div#header .menu ul#menu-header {
+        transition: 400ms;
         left: 0;
         bottom: 0px;
-        background: #ffffff94;
+        background: #ffffffa6;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 0 40px 25px #ffffff inset;
         height: 100vh;
         justify-content: flex-start;
+        width: 0;
+    }
+
+    div#header .menu.menu__on ul#menu-header {
+        width: 100%;
+                
     }
 
     #footer{
@@ -548,6 +589,7 @@ div#social-m a{
         .logo_desk{
             display: none;
         }
+
     }
     
     main#main {
@@ -628,3 +670,4 @@ div#social-m a{
         font-size: 60% !important;
     }
 }
+

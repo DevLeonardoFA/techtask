@@ -264,6 +264,24 @@ div#social-m a svg:hover path {
   color: #ffffff;
 }
 
+div#float_content {
+  opacity: 0;
+  animation: visible 2s 0.6s cubic-bezier(0.24, -0.13, 0.73, 1.25) forwards;
+}
+
+div#img_banner {
+  opacity: 0;
+  animation: visible 2s 1s cubic-bezier(0.24, -0.13, 0.73, 1.25) forwards;
+}
+
+@keyframes visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @media screen and (max-width: 1480px) {
   :root {
     font-size: 85%;
@@ -359,6 +377,21 @@ div#social-m a svg:hover path {
     width: 50%;
     transform: translate(1px, -10px) rotatez(225deg);
   }
+  div#header ul#menu-header li {
+    border-bottom: 1px solid #6371F4;
+  }
+  div#header ul#menu-header li.menu-item-has-children.active ul.sub-menu > li {
+    border: none;
+  }
+  div#header ul#menu-header li.menu-item-has-children > a {
+    width: calc(100% - 0.9375rem);
+    position: relative;
+    display: block;
+    padding: 0;
+  }
+  div#header ul#menu-header li.menu-item-has-children > a span {
+    right: 0;
+  }
 
   body.scrolled div#header img.scale {
     height: 65px;
@@ -405,15 +438,21 @@ div#social-m a svg:hover path {
     padding-right: 5%;
   }
 
-  div#header .menu.menu__on ul#menu-header {
+  div#header .menu ul#menu-header {
+    transition: 400ms;
     left: 0;
     bottom: 0px;
-    background: #ffffff94;
+    background: #ffffffa6;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 0 40px 25px #ffffff inset;
     height: 100vh;
     justify-content: flex-start;
+    width: 0;
+  }
+
+  div#header .menu.menu__on ul#menu-header {
+    width: 100%;
   }
 
   #footer ul#menu-footer-menu {
